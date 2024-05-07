@@ -18,4 +18,8 @@
     <Target Name="Build Preact Components" BeforeTargets="Build">
       <Exec Command="yarn build" WorkingDirectory="ClientApp" />
     </Target>
+
+    <Target Name="Sfumato Build" BeforeTargets="Build">
+        <Exec Command="sfumato build" />
+    </Target>
 </Project>

@@ -42,7 +42,6 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 
-LitDotNetMvcTesting/wwwroot/client-components/*
-PreactDotNetMvcTesting/wwwroot/stylesheets/application.css
-
-PreactDotNetMvcTesting/wwwroot/stylesheets/application.css.map
+**/wwwroot/client-components/*
+**/wwwroot/stylesheets/application.css
+**/wwwroot/stylesheets/application.css.map
