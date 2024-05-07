@@ -16,10 +16,12 @@
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<div class="flex flex-row justify-between items-stretch">
+<div class="grid md:grid-cols-2 gap-4">
     <div id="component-container-1"></div>
     <div id="component-container-2"></div>
     <div id="component-container-3"></div>
+    <my-element-component-shadow></my-element-component-shadow>
+    <my-element-component-non-shadow></my-element-component-non-shadow>
 </div>
 
 @section Scripts
@@ -29,10 +31,15 @@
     </environment>
     
     <script type="module" defer>
-        import { App, MyTest, myRender } from '@myLibUrl';
+        import { App, MyTest, MyElementComponent, myRender, register } from '@myLibUrl';
         
+        // Render the react components here. Web components don't need this.
         myRender(App, document.getElementById('component-container-1'), { initcount: 5, class: 'bg-blue' }); 
         myRender(App, document.getElementById('component-container-2'), { initcount: 10, class: 'bg-red' });
         myRender(MyTest, document.getElementById('component-container-3'));
+        
+        // Web components registration
+        register(MyElementComponent, 'my-element-component-shadow', [], { shadow: true });
+        register(MyElementComponent, 'my-element-component-non-shadow', [], { shadow: false });
     </script>
 }

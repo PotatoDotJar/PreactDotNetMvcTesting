@@ -43,3 +43,6 @@ msbuild.err
 msbuild.wrn
 
 LitDotNetMvcTesting/wwwroot/client-components/*
+PreactDotNetMvcTesting/wwwroot/stylesheets/application.css
+
+PreactDotNetMvcTesting/wwwroot/stylesheets/application.css.map
