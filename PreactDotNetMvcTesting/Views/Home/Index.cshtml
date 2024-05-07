@@ -1,0 +1,38 @@
+﻿@inject IWebHostEnvironment Env
+
+@{
+    ViewData["Title"] = "Home Page";
+    
+    // Use the Url helper to generate the correct path for the client-side component
+    var myLibUrl = Url.Content("~/client-components/my-lib.js");
+    if (Env.IsDevelopment())
+    {
+        myLibUrl = Url.Content("~/src/main.ts");
+    }
+}
+
+<div class="text-center">
+    <h1 class="text-xl">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="flex flex-row justify-between items-stretch">
+    <div id="component-container-1"></div>
+    <div id="component-container-2"></div>
+    <div id="component-container-3"></div>
+</div>
+
+@section Scripts
+{
+    <environment include="Development">
+        <script type="module" src="https://localhost:5173/@@vite/client"></script>
+    </environment>
+    
+    <script type="module" defer>
+        import { App, MyTest, myRender } from '@myLibUrl';
+        
+        myRender(App, document.getElementById('component-container-1'), { initcount: 5, class: 'bg-blue' }); 
+        myRender(App, document.getElementById('component-container-2'), { initcount: 10, class: 'bg-red' });
+        myRender(MyTest, document.getElementById('component-container-3'));
+    </script>
+}
